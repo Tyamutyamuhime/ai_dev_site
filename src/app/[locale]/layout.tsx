@@ -31,6 +31,9 @@ export async function generateMetadata({
     alternates: {
       languages: { ja: "/ja", en: "/en", "x-default": "/ja" },
     },
+    verification: {
+      google: "uaUu9UzBYZBlswJw6l9_G6wMI7i7kR_jP4O21TeCVkQ",
+    },
   };
 }
 
