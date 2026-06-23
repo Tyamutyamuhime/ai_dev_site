@@ -129,21 +129,10 @@ export default async function CasePage({
             </section>
           )}
 
-          {/* 有料: 深掘り(ペイウォール) */}
-          <section className="mt-10 rounded-xl border border-black/[.12] p-6 dark:border-white/[.18]">
-            <div className="flex items-center gap-2">
-              <span aria-hidden>🔒</span>
-              <h2 className="text-xl font-semibold">{dict.case.premiumTitle}</h2>
-            </div>
-            <p className="mt-3 text-zinc-600 dark:text-zinc-400">
-              {dict.case.premiumLead}
-            </p>
-            <Link
-              href={`/${loc}/pricing`}
-              className="mt-5 inline-flex h-11 items-center justify-center rounded-full bg-foreground px-6 text-sm font-medium text-background transition-colors hover:opacity-90"
-            >
-              {dict.case.unlockCta}
-            </Link>
+          {/* 深掘り分析(現段階は全記事開放) */}
+          <section className="mt-10">
+            <h2 className="text-xl font-semibold">{dict.case.premiumTitle}</h2>
+            <Paragraphs text={c.body.premium[loc]} />
           </section>
         </div>
 
