@@ -86,7 +86,9 @@
 
 ### MVP以降の未着手(次の作業候補 / 2026-06-23 壁打ち反映)
 - [x] **Vercelデプロイ(2026-06-23)** — https://ai-dev-site.vercel.app で公開済み。GitHub連携で main push→自動デプロイ。sitemap/robots/OGPは `VERCEL_PROJECT_PRODUCTION_URL` から本番URLを自動解決(`src/lib/site.ts`)。
-- [ ] **独自ドメイン取得 + Search Console登録** — ドメイン決定後 `NEXT_PUBLIC_SITE_URL` で上書き。Google Search Consoleにsitemap登録で初めてSEOの時計が本格的に回る。
+- [x] **独自ドメイン aidevcases.com 接続(2026-06-23)** — Vercelに接続済み。sitemap/OGPは `VERCEL_PROJECT_PRODUCTION_URL` 経由で自動的に aidevcases.com を解決(検証済み)。
+- [ ] **Google Search Console 登録 + sitemap送信** — aidevcases.com で登録し https://aidevcases.com/sitemap.xml を送信。これで初めてSEOの時計が本格的に回る。
+- [ ] **ブランド名の整合** — 表示名が "AI Indie Cases" のまま。ドメインから indie を外した方針と不一致。siteName(i18n辞書)を "AI Dev Cases" 等へ統一するか要判断。
 - [ ] **note有料記事の初出**(横断レポート1本) — インフラ実装ゼロで初収益と課金需要を実弾テスト、サイトへ送客。
 - [ ] **サイトのStripe Payment Link(買い切り)** — 同じ記事をサイトでも少し安く販売(客＝メアドを取る)。noteの後。
 - [ ] **ペイウォールCTAのフェイクドア化** — 「深掘りを読む」をメール登録+計測に。サイト側の課金需要を測る。
@@ -105,7 +107,7 @@ MVPに含めない(後回し): 広告、サブスク本実装、API/CSVエクス
 - ~~無料/有料の境界~~ → 確定(個別事例=全部無料 / 有料=事例横断もの。2026-06-23 更新)
 - ~~収益化の順番~~ → 確定(短期=note有料記事+アフィリ / 長期=サブスク。2026-06-23)
 - 決済の入れ方の順序 → **note先行(インフラ不要)→ サイトStripe Payment Link(買い切り)→ サブスク本実装**
-- ドメイン名(未定)
+- ~~ドメイン名~~ → 確定: **aidevcases.com**(2026-06-23 取得・Vercel接続済み。"AI dev cases"。indieは両言語ブランドで伝わりにくいため不採用)
 - ~~初期投入する事例の選定~~ → 確定(下記「最初の10件」。2026-06-23)
 
 ### 最初に投入する10件(2026-06-23 確定)
