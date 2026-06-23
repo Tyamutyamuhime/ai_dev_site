@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Claude Code local settings (personal, not shared)
+.claude/
+
+# 参照用の元ニュースレター全文(第三者の著作物。履歴に含めない)
+ウマたんニュースレター全記事.md

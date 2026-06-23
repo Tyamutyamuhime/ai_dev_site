@@ -1,0 +1,67 @@
+{
+  "siteName": "AI Indie Cases",
+  "tagline": "How overseas AI apps won — in numbers and repeatable steps.",
+  "nav": {
+    "home": "Home",
+    "cases": "Cases",
+    "about": "About",
+    "pricing": "Pricing"
+  },
+  "filter": {
+    "category": "Category",
+    "tech": "Tech stack",
+    "marketing": "Marketing",
+    "sort": "Sort",
+    "all": "All",
+    "sortByRevenue": "Highest revenue",
+    "sortBySpeed": "Fastest growth"
+  },
+  "case": {
+    "revenue": "Revenue",
+    "period": "Time to grow",
+    "users": "Users",
+    "painPoint": "The pain point, and how they found it",
+    "playbook": "The repeatable playbook",
+    "techStack": "Tech used",
+    "marketing": "Marketing tactics",
+    "premiumTitle": "Deep dive (Premium)",
+    "premiumLead": "Why it worked and the numbers behind it are for premium members.",
+    "unlockCta": "Read the rest (see plans)",
+    "monthsUnit": " months",
+    "readMore": "Read more"
+  },
+  "common": {
+    "switchLanguage": "Language",
+    "backToList": "Back to list"
+  },
+  "about": {
+    "lead": "A media site that breaks down winning overseas AI-app case studies into ‘numbers’ and ‘repeatable steps.’",
+    "p1": "Abroad, solo developers keep using AI to land apps fast and earn thousands to tens of thousands of dollars a month. Yet curated information is scarce. So we gather it here.",
+    "p2": "Not just stories. We structure each case into ‘how they found the pain point,’ ‘the repeatable playbook,’ ‘the tech used,’ and ‘marketing tactics,’ so you can compare and search across them. Less inspiration, more steps you can copy this weekend.",
+    "points": [
+      "Overseas AI-app cases, structured in English (+Japanese)",
+      "Compare by revenue, time-to-grow, category, and tactic",
+      "Sources cited; deep-dive analysis offered to members"
+    ]
+  },
+  "pricing": {
+    "lead": "Case lists, core numbers, pain points, and repeatable steps are all free. Only the deep-dive analysis is for members.",
+    "freeName": "Free",
+    "freePrice": "$0",
+    "freeFeatures": [
+      "Browse, filter, and search every case",
+      "Numbers: revenue, time-to-grow, category",
+      "The pain point and the repeatable playbook",
+      "Tech and marketing tags"
+    ],
+    "premiumName": "Member",
+    "premiumPrice": "Coming soon",
+    "premiumFeatures": [
+      "Deep-dive analysis (why it worked, the numbers behind it)",
+      "Early access to new cases",
+      "Full comparison + CSV/API export (planned)"
+    ],
+    "premiumCta": "Get notified at launch",
+    "note": "Pricing and checkout are in preparation."
+  }
+}
