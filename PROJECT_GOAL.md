@@ -85,7 +85,8 @@
 - ビルド検証済み(`npm run build` 全19ページ生成・型エラーなし 2026-06-22)
 
 ### MVP以降の未着手(次の作業候補 / 2026-06-23 壁打ち反映)
-- [ ] **本番ドメイン + `NEXT_PUBLIC_SITE_URL` 設定 + Vercelデプロイ** — 公開が遅れる＝SEO助走が無駄になる。最優先で時計を回し始める。
+- [x] **Vercelデプロイ(2026-06-23)** — https://ai-dev-site.vercel.app で公開済み。GitHub連携で main push→自動デプロイ。sitemap/robots/OGPは `VERCEL_PROJECT_PRODUCTION_URL` から本番URLを自動解決(`src/lib/site.ts`)。
+- [ ] **独自ドメイン取得 + Search Console登録** — ドメイン決定後 `NEXT_PUBLIC_SITE_URL` で上書き。Google Search Consoleにsitemap登録で初めてSEOの時計が本格的に回る。
 - [ ] **note有料記事の初出**(横断レポート1本) — インフラ実装ゼロで初収益と課金需要を実弾テスト、サイトへ送客。
 - [ ] **サイトのStripe Payment Link(買い切り)** — 同じ記事をサイトでも少し安く販売(客＝メアドを取る)。noteの後。
 - [ ] **ペイウォールCTAのフェイクドア化** — 「深掘りを読む」をメール登録+計測に。サイト側の課金需要を測る。
