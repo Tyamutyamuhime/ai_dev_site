@@ -88,7 +88,7 @@
 - [x] **Vercelデプロイ(2026-06-23)** — https://ai-dev-site.vercel.app で公開済み。GitHub連携で main push→自動デプロイ。sitemap/robots/OGPは `VERCEL_PROJECT_PRODUCTION_URL` から本番URLを自動解決(`src/lib/site.ts`)。
 - [x] **独自ドメイン aidevcases.com 接続(2026-06-23)** — Vercelに接続済み。sitemap/OGPは `VERCEL_PROJECT_PRODUCTION_URL` 経由で自動的に aidevcases.com を解決(検証済み)。
 - [ ] **Google Search Console 登録 + sitemap送信** — aidevcases.com で登録し https://aidevcases.com/sitemap.xml を送信。これで初めてSEOの時計が本格的に回る。
-- [ ] **ブランド名の整合** — 表示名が "AI Indie Cases" のまま。ドメインから indie を外した方針と不一致。siteName(i18n辞書)を "AI Dev Cases" 等へ統一するか要判断。
+- [x] **ブランド名の整合(2026-06-23)** — 表示名を "AI Dev Cases" に統一(ドメインと一致)。siteName(ja/en辞書)。
 - [ ] **note有料記事の初出**(横断レポート1本) — インフラ実装ゼロで初収益と課金需要を実弾テスト、サイトへ送客。
 - [ ] **サイトのStripe Payment Link(買い切り)** — 同じ記事をサイトでも少し安く販売(客＝メアドを取る)。noteの後。
 - [ ] **ペイウォールCTAのフェイクドア化** — 「深掘りを読む」をメール登録+計測に。サイト側の課金需要を測る。
