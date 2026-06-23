@@ -6,11 +6,10 @@ import "../globals.css";
 import { locales, isLocale, defaultLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { LocaleSwitcher } from "@/components/LocaleSwitcher";
+import { SITE_URL } from "@/lib/site";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 // 全ロケールを静的生成
 export function generateStaticParams() {
