@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { cases, getCaseBySlug } from "@content/cases";
+import { SourceTweets, FounderPortrait } from "@/components/SourceTweets";
 import {
   categoryLabel,
   techLabel,
@@ -93,6 +94,17 @@ export default async function CasePage({
             {c.summary[loc]}
           </p>
 
+          {/* 本人ポートレート(Xアバターを埋め込みで表示 / 取れなければ非表示) */}
+          <FounderPortrait sources={c.sources} />
+
+          {/* ヒーロー画像: heroImage があればそれ、無ければ next/og 生成カード */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={c.heroImage ?? `/${loc}/cases/${slug}/opengraph-image`}
+            alt={c.title[loc]}
+            className="mt-6 aspect-[1200/630] w-full rounded-xl border border-black/[.08] object-cover dark:border-white/[.12]"
+          />
+
           {/* 痛点(無料・強調) */}
           <section className="mt-8 rounded-xl border border-amber-300/60 bg-amber-50 p-5 dark:border-amber-400/20 dark:bg-amber-950/20">
             <h2 className="text-sm font-semibold uppercase tracking-wide text-amber-700 dark:text-amber-400">
@@ -105,6 +117,20 @@ export default async function CasePage({
           <section className="mt-8">
             <Paragraphs text={c.body.free[loc]} />
           </section>
+
+          {/* 本人のXポスト(一次情報の公式埋め込み) */}
+          <SourceTweets
+            sources={c.sources}
+            heading={loc === "ja" ? "本人の発信(一次情報)" : "From the founder (primary source)"}
+          />
+
+          {/* 集客チャネル & 技術スタックの生成カード(next/og) */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`/api/card?slug=${slug}&v=stack`}
+            alt={`${c.appName} growth channels and tech stack`}
+            className="mt-8 aspect-[1200/630] w-full rounded-xl border border-black/[.08] object-cover dark:border-white/[.12]"
+          />
 
           {/* 再現手順(無料) */}
           <section className="mt-8">
@@ -129,21 +155,10 @@ export default async function CasePage({
             </section>
           )}
 
-          {/* 有料: 深掘り(ペイウォール) */}
-          <section className="mt-10 rounded-xl border border-black/[.12] p-6 dark:border-white/[.18]">
-            <div className="flex items-center gap-2">
-              <span aria-hidden>🔒</span>
-              <h2 className="text-xl font-semibold">{dict.case.premiumTitle}</h2>
-            </div>
-            <p className="mt-3 text-zinc-600 dark:text-zinc-400">
-              {dict.case.premiumLead}
-            </p>
-            <Link
-              href={`/${loc}/pricing`}
-              className="mt-5 inline-flex h-11 items-center justify-center rounded-full bg-foreground px-6 text-sm font-medium text-background transition-colors hover:opacity-90"
-            >
-              {dict.case.unlockCta}
-            </Link>
+          {/* 深掘り分析(現段階は全記事開放) */}
+          <section className="mt-10">
+            <h2 className="text-xl font-semibold">{dict.case.premiumTitle}</h2>
+            <Paragraphs text={c.body.premium[loc]} />
           </section>
         </div>
 
@@ -229,22 +244,42 @@ export default async function CasePage({
               </div>
             )}
 
-            {/* 出典 */}
-            {c.sourceUrls && c.sourceUrls.length > 0 && (
+            {/* 出典(一次/二次を明記) */}
+            {c.sources && c.sources.length > 0 && (
               <div className="mt-5 border-t border-black/[.08] pt-4 text-xs dark:border-white/[.12]">
                 <div className="font-semibold uppercase tracking-wide text-zinc-500">
                   Source
                 </div>
-                <ul className="mt-2 space-y-1">
-                  {c.sourceUrls.map((u) => (
-                    <li key={u}>
+                <ul className="mt-2 space-y-2">
+                  {c.sources.map((s) => (
+                    <li key={s.url}>
+                      <div className="flex items-center gap-1.5">
+                        <span
+                          className={
+                            s.kind === "primary"
+                              ? "rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400"
+                              : "rounded bg-zinc-100 px-1.5 py-0.5 text-[10px] font-semibold text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400"
+                          }
+                        >
+                          {s.kind === "primary"
+                            ? loc === "ja"
+                              ? "一次情報"
+                              : "Primary"
+                            : loc === "ja"
+                              ? "二次情報"
+                              : "Secondary"}
+                        </span>
+                        <span className="text-zinc-600 dark:text-zinc-300">
+                          {s.title[loc]}
+                        </span>
+                      </div>
                       <a
-                        href={u}
+                        href={s.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="break-all text-zinc-500 underline hover:text-foreground"
+                        className="mt-0.5 block break-all text-zinc-400 underline hover:text-foreground"
                       >
-                        {u.replace(/^https?:\/\//, "")}
+                        {s.url.replace(/^https?:\/\//, "")}
                       </a>
                     </li>
                   ))}
