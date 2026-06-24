@@ -11,7 +11,18 @@ export const coconote = {
   personName: "Zack Hargett & Brett Bauman",
   appName: "Coconote",
   appUrl: "https://coconote.app",
-  sourceUrls: ["https://x.com/zackhargett", "https://x.com/brttbmn"],
+  sources: [
+    {
+      url: "https://x.com/zackhargett",
+      title: { ja: "共同創業者 Zack Hargett 本人(X)", en: "Co-founder Zack Hargett (X)" },
+      kind: "primary",
+    },
+    {
+      url: "https://x.com/brttbmn",
+      title: { ja: "共同創業者 Brett Bauman 本人(X)", en: "Co-founder Brett Bauman (X)" },
+      kind: "primary",
+    },
+  ],
 
   mrrUsd: 558_000,
   revenueType: "arr",

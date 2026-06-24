@@ -61,6 +61,17 @@ export type CategoryKey  = keyof typeof CATEGORIES;
 export type TechKey      = keyof typeof TECH;
 export type MarketingKey = keyof typeof MARKETING;
 
+// ---- 出典(Source) ----
+// 「出典を明記」+「一次情報を優先」を仕組みで担保するための構造化フィールド。
+//  - primary  = 一次情報(創業者本人のX/LinkedIn/インタビュー、公式アプリ/料金ページ、
+//               本人によるProduct Huntローンチ、公式の発表・買収告知 等)
+//  - secondary= 二次情報(報道・ブログ・まとめ。CNBC/TechCrunch/Starter Story/集計サイト 等)
+export interface Source {
+  url: string;
+  title: Localized;             // 出典が何か(例: 「創業者本人の買収告知ポスト(X)」)
+  kind: "primary" | "secondary";
+}
+
 // ---- 事例(Case) ----
 
 export interface Case {
@@ -72,7 +83,7 @@ export interface Case {
   personName: string;
   appName: string;
   appUrl?: string;
-  sourceUrls?: string[];
+  sources?: Source[];           // 出典(一次/二次を明記)。一次情報を最低1つ含めるのが運用ルール
 
   // 数値(言語共通 / ソート・フィルタ対象)
   mrrUsd: number;                 // 正規化したMRR(USD) ← 主ソートキー
