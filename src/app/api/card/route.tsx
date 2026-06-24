@@ -14,7 +14,10 @@ export async function GET(request: Request) {
     return new Response("Not found", { status: 404 });
   }
 
+  // 画像内容は slug+v で確定(不変)。動的ルートなので明示的にキャッシュさせ、
+  // 毎リクエストの satori 再レンダリングを避ける。
   return new ImageResponse(caseCard(c, v === "stack" ? "stack" : "hero"), {
     ...OG_SIZE,
+    headers: { "Cache-Control": "public, max-age=31536000, immutable" },
   });
 }

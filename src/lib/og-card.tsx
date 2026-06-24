@@ -19,13 +19,21 @@ export function headlineRevenue(mrrUsd: number, type: string): string {
   switch (type) {
     case "arr":
       return `${usdCompact(mrrUsd * 12)} ARR`;
-    case "total":
-      return `${usdCompact(mrrUsd)} total`;
     case "daily":
       return `${usdCompact(mrrUsd / 30)}/day`;
+    // "total" 型は mrrUsd が「正規化済みの月次MRR」なので、累計(total)として見せると誤り。
+    // 暫定で MRR 表記に統一する。累計を見出しに出す正式対応は TASKS.md 参照。
+    case "mrr":
+    case "total":
     default:
       return `${usdCompact(mrrUsd)} MRR`;
   }
+}
+
+// カードに載せるチップ数の上限。超過分は「+N」に畳んで縦あふれ(クリップ)を防ぐ。
+function capChips(items: string[], max: number): string[] {
+  if (items.length <= max) return items;
+  return [...items.slice(0, max), `+${items.length - max}`];
 }
 
 const BG = "#0b0f0e";
@@ -130,8 +138,8 @@ function Chips({ items }: { items: string[] }) {
 
 // 本文中の追加画像: 集客チャネル & 技術スタック(英ラベル)
 function stackCard(c: Case) {
-  const channels = c.marketingTags.map((m) => MARKETING[m].en);
-  const stack = c.techStack.map((t) => TECH[t].en);
+  const channels = capChips(c.marketingTags.map((m) => MARKETING[m].en), 6);
+  const stack = capChips(c.techStack.map((t) => TECH[t].en), 4);
 
   return (
     <div

@@ -22,7 +22,7 @@ export async function FounderPortrait({ sources }: { sources?: Source[] }) {
   const id = src ? tweetIdFromUrl(src.url) : null;
   if (!id) return null;
 
-  let tweet;
+  let tweet: Awaited<ReturnType<typeof getTweet>>;
   try {
     tweet = await getTweet(id);
   } catch {
