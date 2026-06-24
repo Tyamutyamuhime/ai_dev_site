@@ -4,9 +4,10 @@ import { pepAi } from "./pep-ai";
 import { once } from "./once";
 import { jungle } from "./jungle";
 import { calAi } from "./cal-ai";
+import { pingoAi } from "./pingo-ai";
 
 // 全事例の集約。事例を追加したらここに足す。
-export const cases: Case[] = [coconote, pepAi, once, jungle, calAi];
+export const cases: Case[] = [coconote, pepAi, once, jungle, calAi, pingoAi];
 
 export function getCaseBySlug(slug: string): Case | undefined {
   return cases.find((c) => c.slug === slug);
