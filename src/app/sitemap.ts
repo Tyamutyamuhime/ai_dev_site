@@ -7,7 +7,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
     "",
     "/about",
-    "/pricing",
     ...cases.map((c) => `/cases/${c.slug}`),
   ];
 

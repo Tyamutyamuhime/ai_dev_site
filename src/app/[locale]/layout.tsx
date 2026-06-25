@@ -66,9 +66,6 @@ export default async function LocaleLayout({
               <Link href={`/${locale}/about`} className="hover:text-foreground">
                 {dict.nav.about}
               </Link>
-              <Link href={`/${locale}/pricing`} className="hover:text-foreground">
-                {dict.nav.pricing}
-              </Link>
               <LocaleSwitcher current={locale} />
             </nav>
           </div>
