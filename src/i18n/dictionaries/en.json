@@ -4,8 +4,7 @@
   "nav": {
     "home": "Home",
     "cases": "Cases",
-    "about": "About",
-    "pricing": "Pricing"
+    "about": "About"
   },
   "filter": {
     "category": "Category",
@@ -24,9 +23,9 @@
     "playbook": "The repeatable playbook",
     "techStack": "Tech used",
     "marketing": "Marketing tactics",
-    "premiumTitle": "Deep dive (Premium)",
-    "premiumLead": "Why it worked and the numbers behind it are for premium members.",
-    "unlockCta": "Read the rest (see plans)",
+    "premiumTitle": "Deep dive",
+    "premiumLead": "Why it worked and the numbers behind it — all free to read for now.",
+    "unlockCta": "Read the rest",
     "monthsUnit": " months",
     "readMore": "Read more"
   },
@@ -41,27 +40,7 @@
     "points": [
       "Overseas AI-app cases, structured in English (+Japanese)",
       "Compare by revenue, time-to-grow, category, and tactic",
-      "Sources cited; deep-dive analysis offered to members"
+      "Sources cited; full deep-dive analysis free to read"
     ]
-  },
-  "pricing": {
-    "lead": "Case lists, core numbers, pain points, and repeatable steps are all free. Only the deep-dive analysis is for members.",
-    "freeName": "Free",
-    "freePrice": "$0",
-    "freeFeatures": [
-      "Browse, filter, and search every case",
-      "Numbers: revenue, time-to-grow, category",
-      "The pain point and the repeatable playbook",
-      "Tech and marketing tags"
-    ],
-    "premiumName": "Member",
-    "premiumPrice": "Coming soon",
-    "premiumFeatures": [
-      "Deep-dive analysis (why it worked, the numbers behind it)",
-      "Early access to new cases",
-      "Full comparison + CSV/API export (planned)"
-    ],
-    "premiumCta": "Get notified at launch",
-    "note": "Pricing and checkout are in preparation."
   }
 }
